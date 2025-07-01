@@ -1,0 +1,250 @@
+.wordle-container {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+  padding: 1rem 2rem; /* Kurangi padding atas menjadi 1rem, tetap 2rem samping */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Mulai dari atas, bukan tengah */
+  gap: 1.5rem;
+  height: auto; /* Fleksibel sesuai konten */
+  max-height: 100vh; /* Batasi maksimum tinggi layar */
+  overflow: auto; /* Izinkan scroll jika konten terlalu banyak */
+  position: relative;
+  width: 90%; /* Responsif lebar */
+  margin: 1rem auto; /* Tambahkan margin atas untuk ruang */
+  box-sizing: border-box; /* Pastikan padding termasuk dalam ukuran */
+}
+
+.wordle-title {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #06b6d4, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wordle-subtitle {
+  color: #94a3b8;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  grid-template-rows: repeat(6, minmax(40px, 60px));
+  grid-template-columns: repeat(5, minmax(40px, 60px));
+  gap: 3px;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 305px;
+  box-sizing: border-box;
+}
+
+.row {
+  display: contents;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.6);
+  color: white;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+.cell.green {
+  background-color: #538d4e;
+  border-color: #538d4e;
+}
+
+.cell.yellow {
+  background-color: #b59f3b;
+  border-color: #b59f3b;
+}
+
+.cell.gray {
+  background-color: #3a3a3c;
+  border-color: #3a3a3c;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  max-width: 90%;
+  flex-grow: 1;
+  margin: 0 auto;
+}
+
+.key {
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #818384;
+  color: white;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  min-width: 35px;
+  transition: background-color 0.3s ease;
+}
+
+.key.green {
+  background-color: #538d4e;
+}
+
+.key.yellow {
+  background-color: #b59f3b;
+}
+
+.key.gray {
+  background-color: #3a3a3c;
+}
+
+.key.special {
+  padding: 0.8rem 1.5rem;
+}
+
+.key:hover:not(.green):not(.yellow):not(.gray) {
+  background-color: #a1a3a6;
+}
+
+.mode-selection {
+  text-align: center;
+}
+
+.mode-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.mode-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(to right, #06b6d4, #3b82f6);
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.mode-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.25);
+}
+
+.back-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  background: rgba(239, 68, 68, 0.8);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.back-button:hover {
+  background: rgba(220, 38, 38, 0.9);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.countdown {
+  text-align: center;
+}
+
+/* Media Queries untuk layar kecil */
+@media (max-width: 480px) {
+  .wordle-container {
+    padding: 0.5rem 1rem; /* Kurangi padding lebih jauh untuk layar kecil */
+    margin: 0.5rem auto;
+    gap: 1rem;
+  }
+
+  .wordle-title {
+    font-size: 1.5rem;
+  }
+
+  .board {
+    grid-template-rows: repeat(6, minmax(30px, 50px));
+    grid-template-columns: repeat(5, minmax(30px, 50px));
+    gap: 2px;
+    max-width: 250px;
+  }
+
+  .cell {
+    font-size: 1.2rem;
+  }
+
+  .keyboard {
+    gap: 2px;
+    max-width: 80%;
+  }
+
+  .key {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    min-width: 30px;
+  }
+
+  .key.special {
+    padding: 0.5rem 1rem;
+  }
+
+  .mode-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .back-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}

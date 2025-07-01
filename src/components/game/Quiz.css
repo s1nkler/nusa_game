@@ -1,0 +1,207 @@
+.quiz-container {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.quiz-title {
+  gap: 1rem;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  background: linear-gradient(to right, #06b6d4, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  -webkit-text-fill-color: transparent;
+}
+
+.quiz-subtitle {
+  color: #94a3b8;
+  padding-top: 1rem;
+  font-size: 1rem;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.input-section-quiz {
+  background: rgba(30, 41, 59, 0.5);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  min-width: 300px;
+}
+
+.chance-container-quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  align-items: center;
+}
+
+.submit-button-quiz {
+  width: 100%;
+  max-width: 200px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(to right, #06b6d4, #3b82f6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.submit-button-quiz:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.25);
+}
+
+.submit-button-quiz.retry {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+}
+
+.remaining-chance {
+  width: 100%;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  align-self: flex-start;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.status-message-quiz {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  background: rgba(239, 68, 68, 0.2);
+  color: white;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+
+.question-image {
+  max-width: 90%;
+  max-height: 300px;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1200px) {
+  .question-image {
+    max-width: 100%;
+    max-height: 240px;
+  }
+}
+
+.custom-input-quiz {
+  width: 100%;
+  max-width: 200px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+  font-size: 1.25rem;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  display: block;
+}
+
+.custom-input-quiz:focus {
+  outline: none;
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
+}
+
+.suggestions-container {
+  position: relative;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.suggestions-list {
+  position: absolute;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 1000;
+  color: black;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 0.5rem;
+}
+
+.suggestion-item {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.suggestion-highlighted {
+  background: rgba(6, 182, 212, 0.2);
+}
+
+.item-name-quiz {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d1d5db;
+  text-align: center;
+}
+
+.Toastify__toast {
+  background: rgba(2, 6, 23, 0.9) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.Toastify__toast-body {
+  color: white;
+}
+
+.Toastify__progress-bar {
+  background: linear-gradient(to right, #06b6d4, #3b82f6) !important;
+}
+
+.Toastify__toast-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: inherit;
+}
+
+.Toastify__toast-icon > svg {
+  display: none !important;
+}
