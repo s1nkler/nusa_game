@@ -115,7 +115,7 @@ function App() {
       </div>
 
       <div className="container container-content">
-        <h1 className="judulContent">Game Wordle Nusantara</h1>
+        <h1 className="judulContent">Game Tebak Kata Nusantara</h1>
         <CardBackground>
           <Game3 />
         </CardBackground>
